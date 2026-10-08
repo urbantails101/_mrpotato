@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potato in a Rug</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4ead7;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .scene {
+      text-align: center;
+    }
+
+    .rug {
+      position: relative;
+      width: 420px;
+      height: 260px;
+      background: #c9825b;
+      border-radius: 45% 45% 40% 40%;
+      box-shadow: 0 15px 0 #a96548;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .rug::before,
+    .rug::after {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 25px;
+      background: #e3ad82;
+      border-radius: 50%;
+      bottom: -18px;
+    }
+
+    .rug::before {
+      left: 35px;
+    }
+
+    .rug::after {
+      right: 35px;
+    }
+
+    .potato {
+      position: relative;
+      width: 190px;
+      height: 150px;
+      background: #c99a62;
+      border-radius: 48% 52% 45% 55%;
+      transform: rotate(-4deg);
+      box-shadow: inset -12px -10px 0 #ad7d4c;
+    }
+
+    /* potato spots */
+    .spot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #8c6239;
+      border-radius: 50%;
+    }
+
+    .s1 { top: 30px; left: 40px; }
+    .s2 { top: 95px; left: 25px; }
+    .s3 { top: 45px; right: 35px; }
+    .s4 { bottom: 25px; right: 65px; }
+
+    /* pug ears */
+    .ear {
+      position: absolute;
+      width: 65px;
+      height: 55px;
+      background: #6f4a32;
+      top: 10px;
+      border-radius: 50% 30% 60% 40%;
+      z-index: 2;
+    }
+
+    .ear.left {
+      left: 10px;
+      transform: rotate(-30deg);
+    }
+
+    .ear.right {
+      right: 10px;
+      transform: rotate(30deg);
+    }
+
+    /* pug face */
+    .face {
+      position: absolute;
+      width: 125px;
+      height: 105px;
+      background: #d7aa72;
+      border-radius: 48%;
+      left: 33px;
+      top: 22px;
+    }
+
+    .eye {
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      background: #241a15;
+      border-radius: 50%;
+      top: 28px;
+    }
+
+    .eye.left {
+      left: 27px;
+    }
+
+    .eye.right {
+      right: 27px;
+    }
+
+    .muzzle {
+      position: absolute;
+      width: 70px;
+      height: 48px;
+      background: #e0b982;
+      border-radius: 50%;
+      left: 27px;
+      bottom: 12px;
+    }
+
+    .nose {
+      position: absolute;
+      width: 28px;
+      height: 20px;
+      background: #201713;
+      border-radius: 45% 45% 55% 55%;
+      left: 21px;
+      top: 7px;
+    }
+
+    .mouth {
+      position: absolute;
+      width: 25px;
+      height: 12px;
+      border-bottom: 3px solid #241a15;
+      border-radius: 50%;
+      left: 23px;
+      top: 24px;
+    }
+
+    h1 {
+      margin-top: 45px;
+      color: #543927;
+      font-size: 32px;
+    }
+
+    p {
+      color: #76553e;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 20px;
+      background: #543927;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="scene">
+
+    <div class="rug">
+
+      <div class="potato">
+
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+
+        <div class="face">
+
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+
+          <div class="muzzle">
+            <div class="nose"></div>
+            <div class="mouth"></div>
+          </div>
+
+        </div>
+
+        <div class="spot s1"></div>
+        <div class="spot s2"></div>
+        <div class="spot s3"></div>
+        <div class="spot s4"></div>
+
+      </div>
+
+    </div>
+
+    <h1>🥔 Pug in a Rug</h1>
+    <p>Except the pug is a potato.</p>
+
+    <button onclick="potatoMoment()">
+      Pet the potato
+    </button>
+
+  </div>
+
+  <script>
+    function potatoMoment() {
+      const potato = document.querySelector(".potato");
+
+      potato.animate(
+        [
+          { transform: "rotate(-4deg) scale(1)" },
+          { transform: "rotate(4deg) scale(1.08)" },
+          { transform: "rotate(-4deg) scale(1)" }
+        ],
+        {
+          duration: 500,
+          iterations: 1
+        }
+      );
+    }
+  </script>
+
+</body>
+</html>
